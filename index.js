@@ -8,8 +8,6 @@ const adminName = process.env.TG_ADMIN
 
 const bot = new TelegramBot(token, {polling: true});
 
-bot.sendMessage(chatId, '"/start" что бы начать')
-
 bot.on('message', async(msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
@@ -22,7 +20,7 @@ bot.on('message', async(msg) => {
         reply_markup: {
           resize_keyboard: true,
             keyboard: [
-                [{text: button, web_app: {url: webAppUrl}}]   
+                [{text: button, web_app: {url: webAppUrl + '/1'}}]   
             ]
         }
     })
