@@ -14,7 +14,7 @@ bot.on('message', async(msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
   const button = 'Магазин'
-  const admin = 'admin'
+  const admin = 'admin' 
 
 
   if(text === '/start') {
