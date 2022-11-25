@@ -50,7 +50,7 @@ bot.on('message', async(msg) => {
   if(msg?.web_app_data?.data) {  
     try {
       const data = JSON.parse(msg?.web_app_data?.data)
-      await bot.sendMessage(chatId, `Информация о заказе: \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Цвет: ${data?.color}; \n Память: ${data?.memory}; \n`)
+      await bot.sendMessage(chatId, `Информация о заказе: \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Память: ${data?.memory}; \n Способ оплаты и доставки: ${data?.delivery} \n`)
     } catch (e) {
       console.log(e);
     }
