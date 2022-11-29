@@ -4,6 +4,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TG_TOKEN
 const webAppUrl = process.env.TG_URL
 const adminName = process.env.TG_ADMIN
+const adminChatId = process.env.TG_ADMIN_CHAT
 
 
 const bot = new TelegramBot(token, {polling: true});
@@ -26,6 +27,7 @@ bot.on('message', async(msg) => {
     })
   }
 
+
   if(msg.chat.username === adminName && text === '/admin') {
     await bot.sendMessage(chatId, 'Добро пожаловать, ' + msg.chat.first_name + ' ' + msg.chat.last_name + '.\n' + 'Нажмите на кнопку "' + admin + '" что-бы переидти на админку', {
       reply_markup: {
@@ -46,11 +48,10 @@ bot.on('message', async(msg) => {
   //     console.log(e);
   //   }
   // }
-
   if(msg?.web_app_data?.data) {  
     try {
       const data = JSON.parse(msg?.web_app_data?.data)
-      await bot.sendMessage(chatId, `Информация о заказе: \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Память: ${data?.memory}; \n Способ оплаты и доставки: ${data?.delivery} \n`)
+      await bot.sendMessage(adminChatId, `ФИО: ${msg.chat.first_name, msg.chat.username, msg.chat.last_name} \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Память: ${data?.memory}; \n Способ оплаты и доставки: ${data?.delivery} \n`)
     } catch (e) {
       console.log(e);
     }
