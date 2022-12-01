@@ -1,10 +1,10 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 
-const token = process.env.NODE_TG_TOKEN || '5467858062:AAGrigsWgrvqUxLDsWmG2S9OxYYrS4Xx0vM'
-const webAppUrl = process.env.NODE_TG_URL || 'https://polite-toffee-de0e59.netlify.app'
-const adminName = process.env.NODE_TG_ADMIN || 'beka01_sams'
-const adminChatId = process.env.NODE_TG_ADMIN_CHAT || 886885971
+const token = process.env.NODE_TG_TOKEN
+const webAppUrl = process.env.NODE_TG_URL
+const adminName = process.env.NODE_TG_ADMIN
+const adminChatId = process.env.NODE_TG_ADMIN_CHAT
 
 
 const bot = new TelegramBot(token, {polling: true});
