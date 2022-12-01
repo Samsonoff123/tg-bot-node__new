@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /tg-bot-full
+/tg-bot-app123
 .env
 /.pnp
 .pnp.js
