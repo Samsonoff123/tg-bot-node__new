@@ -1,10 +1,10 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 
-const token = process.env.TG_TOKEN
-const webAppUrl = process.env.TG_URL
-const adminName = process.env.TG_ADMIN
-const adminChatId = process.env.TG_ADMIN_CHAT
+const token = process.env.NODE_TG_TOKEN
+const webAppUrl = process.env.NODE_TG_URL
+const adminName = process.env.NODE_TG_ADMIN
+const adminChatId = process.env.NODE_TG_ADMIN_CHAT
 
 
 const bot = new TelegramBot(token, {polling: true});
