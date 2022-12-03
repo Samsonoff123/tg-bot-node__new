@@ -6,6 +6,7 @@ const webAppUrl = process.env.NODE_TG_URL
 const adminName = process.env.NODE_TG_ADMIN
 const adminChatId = process.env.NODE_TG_ADMIN_CHAT
 
+setInterval(() => {
 
 const bot = new TelegramBot(token, {polling: true});
 
@@ -58,3 +59,5 @@ bot.on('message', async(msg) => {
   }
 });
 
+  
+}, 100);
