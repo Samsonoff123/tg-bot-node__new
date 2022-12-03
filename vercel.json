@@ -1,6 +1,9 @@
 {
     "version": 2,
     "name": "name-of-your-vercel-app",
+    "builds": [
+      { "src": "index.js", "use": "@vercel/node" }
+    ],
     "start": [
         { "src": "index.js", "use": "@vercel/node" }
       ],
