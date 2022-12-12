@@ -50,7 +50,7 @@ const TelegramBot = require('node-telegram-bot-api');
 
           const data = JSON.parse(msg?.web_app_data?.data)
 
-          await bot.sendMessage(adminChatId, `Username: @${msg?.from?.username} \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Память: ${data?.memory}; \n Способ оплаты и доставки: ${data?.delivery} \n`)
+          await bot.sendMessage(adminChatId, `Username: @${msg?.from?.username} \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Способ оплаты и доставки: ${data?.delivery} \n`)
         } catch (e) {
           console.log(e);
         }
