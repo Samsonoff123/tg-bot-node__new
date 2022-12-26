@@ -8,6 +8,8 @@ const TelegramBot = require('node-telegram-bot-api');
      
     const bot = new TelegramBot(token, {polling: true});
 
+    let messageNum = true
+
     bot.on('message', async(msg) => { 
       const chatId = msg.chat.id;
       const text = msg.text;
@@ -15,7 +17,12 @@ const TelegramBot = require('node-telegram-bot-api');
       const admin = 'admin' 
   
     
-      if(text === '/start') {
+      if(text === '/start' || text === 'Магазин' || text === 'Начать' || text === 'старт') {
+        if (messageNum) {
+          await bot.sendMessage(chatId, 'Приветствуем всех, этот бот создан для удобной покупки техники. Кликнув на кнопку “магазин” вы можете ознакомиться с текущим ассортиментом. Если же вы не нашли, то что искали, вы можете написать интересующий Вас вопрос напрямую нашему <b><a href="https://t.me/${adminName}">менеджеру</a></b>. Список товаров будет пополняться. Будем рады видеть Вас в числе наших клиентов.  \nУдачных покупок!', { parse_mode: 'HTML' })
+          await bot.sendMessage(chatId, 'В связи с экономической ситуацией, а именно с нестабильным курсом доллара. Актуальные цены и наличие устройств может предоставить менеджер, цены которые вы видите могут измениться как в большую степень / так и в меньшую. \nСпасибо за понимание')
+          messageNum = false
+        }
         await bot.sendMessage(chatId, 'Нажмите на кнопку "' + button + '" чтобы продолжить', {
             reply_markup: {
               resize_keyboard: true,
@@ -50,7 +57,7 @@ const TelegramBot = require('node-telegram-bot-api');
 
           const data = JSON.parse(msg?.web_app_data?.data)
 
-          await bot.sendMessage(adminChatId, `Username: @${msg?.from?.username} \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Способ оплаты и доставки: ${data?.delivery} \n`)
+          await bot.sendMessage(adminChatId, `Username: @${msg?.from?.username} \n Наименование: ${data?.name}; \n Цена: ${data?.price}; \n Способ оплаты и доставки: ${data?.delivery}`)
         } catch (e) {
           console.log(e);
         }
